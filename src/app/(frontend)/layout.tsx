@@ -47,7 +47,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
       <body>
         <Header />
         <main>{children}</main>
-        <Footer data={footerData} />
+        <Footer data={footerData as any} />
       </body>
     </html>
   )

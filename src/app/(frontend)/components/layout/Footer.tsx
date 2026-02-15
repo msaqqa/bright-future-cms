@@ -97,7 +97,7 @@ export default function Footer({ data }: { data: FooterData }) {
                 <div className="col-lg-3 col-md-12">
                   <div className="footer-about">
                     <figure>
-                      <Image src={logoUrl} alt={logoAlt} fill />
+                      <Image src={logoUrl} alt={logoAlt as string} fill />
                     </figure>
                     <p>{data.aboutText}</p>
                   </div>

@@ -17,13 +17,13 @@ export default async function HomePage() {
 
   return (
     <main>
-      <Hero data={homeData.hero} />
-      <WhyChooseUs data={homeData.whyChooseUs} />
-      <LatestNews data={homeData.latestNews} />
-      <Infobar data={homeData.infobar} />
-      <WhyBrightFutureEnergy data={homeData.whyBrightFutureEnergy} />
-      <Installation data={homeData.installation} />
-      <FAQ data={homeData.faq} />
+      <Hero data={homeData.hero as any} />
+      <WhyChooseUs data={homeData.whyChooseUs as any} />
+      <LatestNews data={homeData.latestNews as any} />
+      <Infobar data={homeData.infobar as any} />
+      <WhyBrightFutureEnergy data={homeData.whyBrightFutureEnergy as any} />
+      <Installation data={homeData.installation as any} />
+      <FAQ data={homeData.faq as any} />
       <ContactForm />
     </main>
   )
