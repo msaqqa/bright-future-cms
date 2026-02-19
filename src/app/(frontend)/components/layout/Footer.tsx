@@ -1,35 +1,7 @@
 import Image from 'next/image'
+import { TFooterData } from '../../types/layout'
 
-export interface FooterData {
-  email?: string
-  phone?: string
-  location?: string
-  locationUrl?: string
-  aboutText?: string
-  footerLogo:
-    | {
-        url: string
-        alt?: string
-      }
-    | string
-  socialLinks?: {
-    platform: 'facebook' | 'twitter' | 'linkedin' | 'instagram'
-    url: string
-    id?: string
-  }[]
-  columns?: {
-    title: string
-    links?: {
-      label: string
-      url: string
-      id?: string
-    }[]
-    id?: string
-  }[]
-  copyrightText?: string
-}
-
-export default function Footer({ data }: { data: FooterData }) {
+export default function Footer({ data }: { data: TFooterData }) {
   const logoUrl = typeof data.footerLogo === 'object' ? data.footerLogo?.url : ''
   const logoAlt = typeof data.footerLogo === 'object' ? data.footerLogo?.alt : ''
   return (
@@ -42,7 +14,7 @@ export default function Footer({ data }: { data: FooterData }) {
             <div className="col-lg-4">
               <div className="footer-contact-box wow fadeInUp" data-wow-delay="0.25s">
                 <div className="contact-icon-box">
-                  <Image src="/images/icon-email.svg" alt="Email" width={40} height={40} />
+                  <Image src="/images/icon-email.svg" alt="Email" width={40} height={40} priority />
                 </div>
                 <div className="footer-contact-info">
                   <h3>Hilfe & Kontakt per E-Mail</h3>
@@ -57,7 +29,7 @@ export default function Footer({ data }: { data: FooterData }) {
             <div className="col-lg-4">
               <div className="footer-contact-box wow fadeInUp" data-wow-delay="0.5s">
                 <div className="contact-icon-box">
-                  <Image src="/images/icon-phone.svg" alt="Phone" width={40} height={40} />
+                  <Image src="/images/icon-phone.svg" alt="Phone" width={40} height={40} priority />
                 </div>
                 <div className="footer-contact-info">
                   <h3>Kundenservice</h3>
@@ -72,7 +44,13 @@ export default function Footer({ data }: { data: FooterData }) {
             <div className="col-lg-4">
               <div className="footer-contact-box wow fadeInUp" data-wow-delay="0.75s">
                 <div className="contact-icon-box">
-                  <Image src="/images/icon-location.svg" alt="Location" width={40} height={40} />
+                  <Image
+                    src="/images/icon-location.svg"
+                    alt="Location"
+                    width={40}
+                    height={40}
+                    priority
+                  />
                 </div>
                 <div className="footer-contact-info">
                   <h3>Unser Standort</h3>
@@ -97,7 +75,7 @@ export default function Footer({ data }: { data: FooterData }) {
                 <div className="col-lg-3 col-md-12">
                   <div className="footer-about">
                     <figure>
-                      <Image src={logoUrl} alt={logoAlt as string} fill />
+                      <Image src={logoUrl} alt={logoAlt as string} fill priority />
                     </figure>
                     <p>{data.aboutText}</p>
                   </div>

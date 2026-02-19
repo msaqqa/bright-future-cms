@@ -1,27 +1,11 @@
 import React from 'react'
 import Image from 'next/image'
+import { TWhyChooseUsData } from '../../types/home'
+import { getMedia } from '../../lib/media'
 
-interface Media {
-  url: string
-  alt: string
-}
-
-interface WhyChooseItem {
-  title: string
-  description?: string
-  image?: Media
-  icon: Media
-}
-
-interface WhyChooseUsProps {
-  data: {
-    title: string
-    items?: WhyChooseItem[]
-  }
-}
-
-export default function WhyChooseUs({ data }: WhyChooseUsProps) {
+export default function WhyChooseUs({ data }: TWhyChooseUsData) {
   if (!data) return null
+
   return (
     <div className="why-choose-us">
       <div className="container">
@@ -34,36 +18,32 @@ export default function WhyChooseUs({ data }: WhyChooseUsProps) {
         </div>
 
         <div className="row">
-          {data.items?.map((item, index) => (
-            <div key={index} className="col-lg-4 col-md-6">
-              <div
-                className="why-choose-item wow fadeInUp"
-                data-wow-delay={`${(index + 1) * 0.25}s`}
-              >
-                <div className="why-choose-image">
-                  {item.image?.url && (
-                    <Image
-                      src={item.image.url}
-                      alt={item.title || 'Feature Image'}
-                      width={400}
-                      height={250}
-                    />
-                  )}
-                </div>
-
-                <div className="why-choose-content">
-                  <div className="why-choose-icon">
-                    {item.icon?.url && (
-                      <Image src={item.icon.url} alt="icon" width={50} height={50} />
+          {data.items?.map((item, index) => {
+            const image = getMedia(item.image, item.title)
+            const icon = getMedia(item.icon, item.title)
+            return (
+              <div key={index} className="col-lg-4 col-md-6">
+                <div
+                  className="why-choose-item wow fadeInUp"
+                  data-wow-delay={`${(index + 1) * 0.25}s`}
+                >
+                  <div className="why-choose-image">
+                    {item.image && (
+                      <Image src={image.url} alt={image.alt} width={400} height={250} />
                     )}
                   </div>
 
-                  <h3>{item.title}</h3>
-                  <p>{item.description}</p>
+                  <div className="why-choose-content">
+                    <div className="why-choose-icon">
+                      {item.icon && <Image src={icon.url} alt={icon.alt} width={50} height={50} />}
+                    </div>
+                    <h3>{item.title}</h3>
+                    <p>{item.description}</p>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            )
+          })}
         </div>
       </div>
     </div>

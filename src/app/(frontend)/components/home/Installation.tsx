@@ -1,43 +1,36 @@
 import Image from 'next/image'
+import { TInstallationItem } from '../../types/home'
+import { getMedia } from '../../lib/media'
 
-interface Media {
-  url: string
-  alt: string
-}
-
-type TItem = {
-  image: Media
-  title: string
-  subtitle?: string
-  description?: string
-  link?: string
-  id?: string
-}
-
-export default function Installation({ data }: { data: { items: TItem[] } }) {
+export default function Installation({ data }: { data: { items: TInstallationItem[] } }) {
   if (!data) return null
+
   return (
     <div className="installation">
       <div className="container">
         <div className="row">
-          {data?.items?.map((item: TItem, index: number) => (
-            <div className="col-lg-6" key={index}>
-              <div className="blog-item wow fadeInUp">
-                <div className="post-featured-image">
-                  <figure className="image-anime">
-                    <Image src={item.image?.url} alt={item.title} fill />
-                  </figure>
-                </div>
-                <div className="post-item-body">
-                  <a href={item.link}>
-                    <h2>{item.title}</h2>
-                    <h4>{item.subtitle}</h4>
-                    <p>{item.description}</p>
-                  </a>
+          {data?.items?.map((item: TInstallationItem, index: number) => {
+            const image = getMedia(item.image, item.title)
+            return (
+              <div className="col-lg-6" key={index}>
+                <div className="blog-item wow fadeInUp">
+                  <div className="post-featured-image">
+                    <figure className="image-anime">
+                      <Image src={image.url} alt={image.alt} fill />
+                    </figure>
+                  </div>
+
+                  <div className="post-item-body">
+                    <a href={item.link}>
+                      <h2>{item.title}</h2>
+                      <h4>{item.subtitle}</h4>
+                      <p>{item.description}</p>
+                    </a>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            )
+          })}
         </div>
       </div>
     </div>

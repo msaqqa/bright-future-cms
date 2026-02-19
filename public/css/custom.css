@@ -2021,6 +2021,10 @@ header.main-header .header-sticky.active {
   padding: 0 60px;
 }
 
+.infobar .cta-content p a {
+  color: var(--accent-color);
+}
+
 .cta-content .phone-icon {
   width: 90px;
   height: 90px;

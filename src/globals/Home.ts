@@ -80,8 +80,6 @@ export const Home: GlobalConfig = {
                   name: 'items',
                   type: 'array',
                   label: 'Benefit Items',
-                  minRows: 3,
-                  maxRows: 6,
                   fields: [
                     {
                       name: 'title',
@@ -145,7 +143,7 @@ export const Home: GlobalConfig = {
               type: 'group',
               fields: [
                 { name: 'title', type: 'text', required: true },
-                { name: 'description', type: 'textarea' },
+                { name: 'description', type: 'richText' },
                 {
                   name: 'image',
                   type: 'upload',
@@ -180,8 +178,6 @@ export const Home: GlobalConfig = {
                   name: 'items',
                   type: 'array',
                   label: 'Benefit Items',
-                  minRows: 3,
-                  maxRows: 6,
                   fields: [
                     {
                       name: 'title',

@@ -1,19 +1,13 @@
 import Image from 'next/image'
+import { TInfobarData } from '../../types/home'
+import { RichText } from '@payloadcms/richtext-lexical/react'
+import { getMedia } from '../../lib/media'
 
-interface Media {
-  url: string
-  alt: string
-}
-
-type InfobarData = {
-  title: string
-  description?: string
-  image: Media
-  icon: Media
-}
-
-export default function Infobar({ data }: { data: InfobarData }) {
+export default function Infobar({ data }: { data: TInfobarData }) {
   if (!data) return null
+
+  const image = getMedia(data.image, data.title)
+  const icon = getMedia(data.icon, data.title)
 
   return (
     <div className="infobar">
@@ -25,7 +19,7 @@ export default function Infobar({ data }: { data: InfobarData }) {
                 <div className="col-lg-4">
                   <div className="cta-image">
                     <figure className="image-anime">
-                      <Image src={data.image.url} alt={data.image.alt} fill />
+                      <Image src={image.url} alt={image.alt} fill />
                     </figure>
                   </div>
                 </div>
@@ -34,21 +28,11 @@ export default function Infobar({ data }: { data: InfobarData }) {
                   <div className="cta-content">
                     <div className="phone-icon">
                       <figure>
-                        <Image src={data.icon.url} alt={data.icon.alt} width={40} height={40} />
+                        <Image src={icon.url} alt={icon.alt} width={40} height={40} />
                       </figure>
                     </div>
                     <h3 className="text-anime">{data.title}</h3>
-                    <p className="wow fadeInUp" data-wow-delay="0.25s">
-                      {data.description}
-                      <a className="mailto" href="tel:+4915906421718">
-                        +49 1590 6421718
-                      </a>
-                      an oder senden Sie uns eine E-Mail an
-                      <a className="mailto" href="mailto:info@bf-energy.de">
-                        info@bf-energy.de
-                      </a>
-                      . Wir stehen Ihnen jederzeit zur Verfügung.
-                    </p>
+                    {data?.description && <RichText data={data.description as any} />}
                   </div>
                 </div>
               </div>

@@ -1,37 +1,18 @@
 import React from 'react'
 import Link from 'next/link'
+import { THeroData } from '../../types/home'
+import { getMedia } from '../../lib/media'
 
-interface Media {
-  url: string
-  alt: string
-}
-
-interface Button {
-  label: string
-  link: string
-}
-
-interface HeroProps {
-  data: {
-    welcomeText?: string
-    mainTitle: string
-    description?: string
-    backgroundImage?: string | Media
-    primaryButton?: Button
-    secondaryButton?: Button
-  }
-}
-
-export default function Hero({ data }: HeroProps) {
+export default function Hero({ data }: { data: THeroData }) {
   if (!data) return null
-  const bgUrl =
-    typeof data.backgroundImage === 'object' ? data.backgroundImage?.url : '/images/hero.jpg'
+
+  const bgUrl = getMedia(data.backgroundImage)
 
   return (
     <div
       className="hero parallaxie"
       style={{
-        backgroundImage: `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(${bgUrl || ''})`,
+        backgroundImage: `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(${bgUrl.url})`,
       }}
     >
       <div className="container">

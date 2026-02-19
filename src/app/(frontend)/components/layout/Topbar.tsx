@@ -1,15 +1,7 @@
 import React from 'react'
+import { TTopbarData } from '../../types/layout'
 
-interface TopbarProps {
-  email: string
-  phone: string
-  socialLinks?: {
-    platform: string
-    url: string
-  }[]
-}
-
-export default function Topbar({ email, phone, socialLinks }: TopbarProps) {
+export default function Topbar({ email, phone, socialLinks }: TTopbarData) {
   return (
     <div className="topbar wow fadeInUp">
       <div className="container">
