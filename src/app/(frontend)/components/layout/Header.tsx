@@ -4,11 +4,13 @@ import Image from 'next/image'
 import { getPayload } from 'payload'
 import configPromise from '@payload-config'
 import Topbar from './Topbar'
+import { getMedia } from '../../lib/media'
 
 export default async function Header() {
   const payload = await getPayload({ config: configPromise })
   const headerData = await payload.findGlobal({ slug: 'header' })
-  const logoUrl = typeof headerData.logo === 'object' ? headerData.logo?.url : ''
+
+  const logoUrl = getMedia(headerData.logo as any)
 
   return (
     <>
@@ -25,7 +27,7 @@ export default async function Header() {
               {/* Logo */}
               <Link href="/" className="navbar-brand">
                 {logoUrl && (
-                  <Image src={logoUrl} alt="Bright Future Logo" width={180} height={60} priority />
+                  <Image src={logoUrl.url} alt={logoUrl.alt} width={180} height={60} priority />
                 )}
               </Link>
 
