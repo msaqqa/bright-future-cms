@@ -11,6 +11,10 @@ const nextConfig = {
       },
       {
         protocol: 'https',
+        hostname: 'bright-future-cms.vercel.app',
+      },
+      {
+        protocol: 'https',
         hostname: '*.r2.cloudflarestorage.com',
       },
     ],
