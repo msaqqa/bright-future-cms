@@ -1,9 +1,12 @@
 import Image from 'next/image'
 import { TFooterData } from '../../types/layout'
+import { getMedia } from '../../lib/media'
 
 export default function Footer({ data }: { data: TFooterData }) {
-  const logoUrl = typeof data.footerLogo === 'object' ? data.footerLogo?.url : ''
-  const logoAlt = typeof data.footerLogo === 'object' ? data.footerLogo?.alt : ''
+  if (!data) return null
+
+  const logoImage = getMedia(data.footerLogo as any)
+
   return (
     <footer className="main-footer">
       {/* Contact Footer */}
@@ -75,7 +78,7 @@ export default function Footer({ data }: { data: TFooterData }) {
                 <div className="col-lg-3 col-md-12">
                   <div className="footer-about">
                     <figure>
-                      <Image src={logoUrl} alt={logoAlt as string} fill priority />
+                      <Image src={logoImage.url} alt={logoImage.alt} fill priority />
                     </figure>
                     <p>{data.aboutText}</p>
                   </div>
