@@ -1,8 +1,12 @@
+import { revalidateAll } from '@/hooks/revalidate'
 import { GlobalConfig } from 'payload'
 
 export const Header: GlobalConfig = {
   slug: 'header',
   label: 'Header Settings',
+  hooks: {
+    afterChange: [revalidateAll],
+  },
   admin: {
     group: 'Layout',
   },
