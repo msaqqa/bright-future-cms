@@ -15,7 +15,7 @@ const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
 export default buildConfig({
-  serverURL: process.env.NEXT_PUBLIC_SERVER_URL,
+  serverURL: process.env.SERVER_URL,
   admin: {
     user: Users.slug,
     importMap: {
@@ -38,7 +38,10 @@ export default buildConfig({
   plugins: [
     s3Storage({
       collections: {
-        media: true,
+        media: {
+          generateFileURL: ({ filename }) => `${process.env.S3_PUBLIC_URL}/${filename}`,
+          disablePayloadAccessControl: true,
+        },
       },
       bucket: process.env.S3_BUCKET!,
       config: {
@@ -49,8 +52,6 @@ export default buildConfig({
         },
         region: 'auto',
         forcePathStyle: true,
-        requestHandler: undefined,
-        tls: true,
       },
     }),
   ],

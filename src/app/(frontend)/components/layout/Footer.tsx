@@ -5,7 +5,7 @@ import { getMedia } from '../../lib/media'
 export default function Footer({ data }: { data: TFooterData }) {
   if (!data) return null
 
-  const logoImage = getMedia(data.footerLogo as any)
+  const logoImage = getMedia(data.footerLogo)
 
   return (
     <footer className="main-footer">
@@ -13,58 +13,24 @@ export default function Footer({ data }: { data: TFooterData }) {
       <div className="footer-contact">
         <div className="container">
           <div className="row">
-            {/* Email Box */}
-            <div className="col-lg-4">
-              <div className="footer-contact-box wow fadeInUp" data-wow-delay="0.25s">
-                <div className="contact-icon-box">
-                  <Image src="/images/icon-email.svg" alt="Email" width={40} height={40} priority />
+            {data.contactItems?.map((item, index) => {
+              const icon = getMedia(item.icon, item.title)
+              return (
+                <div className="col-lg-4">
+                  <div className="footer-contact-box wow fadeInUp" data-wow-delay="0.25s">
+                    <div className="contact-icon-box">
+                      <Image src={icon.url} alt={icon.alt} width={40} height={40} priority />
+                    </div>
+                    <div className="footer-contact-info">
+                      <h3>{item.title}</h3>
+                      <p>
+                        <a href={item.details.link}>{item.details.label}</a>
+                      </p>
+                    </div>
+                  </div>
                 </div>
-                <div className="footer-contact-info">
-                  <h3>Hilfe & Kontakt per E-Mail</h3>
-                  <p>
-                    <a href={`mailto:${data.email}`}>{data.email}</a>
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Phone Box */}
-            <div className="col-lg-4">
-              <div className="footer-contact-box wow fadeInUp" data-wow-delay="0.5s">
-                <div className="contact-icon-box">
-                  <Image src="/images/icon-phone.svg" alt="Phone" width={40} height={40} priority />
-                </div>
-                <div className="footer-contact-info">
-                  <h3>Kundenservice</h3>
-                  <p>
-                    <a href={`tel:${data.phone}`}>{data.phone}</a>
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Location Box */}
-            <div className="col-lg-4">
-              <div className="footer-contact-box wow fadeInUp" data-wow-delay="0.75s">
-                <div className="contact-icon-box">
-                  <Image
-                    src="/images/icon-location.svg"
-                    alt="Location"
-                    width={40}
-                    height={40}
-                    priority
-                  />
-                </div>
-                <div className="footer-contact-info">
-                  <h3>Unser Standort</h3>
-                  <p>
-                    <a href={data.locationUrl} target="_blank" rel="noopener noreferrer">
-                      {data.location}
-                    </a>
-                  </p>
-                </div>
-              </div>
-            </div>
+              )
+            })}
           </div>
         </div>
       </div>

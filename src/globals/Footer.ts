@@ -17,27 +17,31 @@ export const Footer: GlobalConfig = {
           label: 'Contact Info',
           fields: [
             {
-              name: 'email',
-              type: 'text',
-              label: 'Email Address',
-              defaultValue: 'info@bf-energy.de',
-            },
-            {
-              name: 'phone',
-              type: 'text',
-              label: 'Phone Number',
-              defaultValue: '+49 1590 6421718',
-            },
-            {
-              name: 'location',
-              type: 'textarea',
-              label: 'Address Text',
-              defaultValue: 'Stein Str. 81-83, 35390 Gießen',
-            },
-            {
-              name: 'locationUrl',
-              type: 'text',
-              label: 'Google Maps URL',
+              name: 'contactItems',
+              type: 'array',
+              label: 'Contact Items',
+              fields: [
+                {
+                  name: 'title',
+                  type: 'text',
+                  label: 'Contact Title',
+                },
+                {
+                  name: 'details',
+                  type: 'group',
+                  label: 'Contact Details',
+                  fields: [
+                    { name: 'label', type: 'text', label: 'Label', required: true },
+                    { name: 'link', type: 'text', label: 'Link', required: true },
+                  ],
+                },
+                {
+                  name: 'icon',
+                  type: 'upload',
+                  relationTo: 'media',
+                  label: 'Contact Icon',
+                },
+              ],
             },
           ],
         },

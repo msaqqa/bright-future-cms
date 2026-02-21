@@ -2,7 +2,6 @@ import { withPayload } from '@payloadcms/next/withPayload'
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Your Next.js config here
   images: {
     remotePatterns: [
       {
@@ -16,6 +15,10 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: '*.r2.cloudflarestorage.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'pub-22b39b19c7ba4a15a740e0f47e7e9666.r2.dev',
       },
     ],
     deviceSizes: [640, 750, 828, 1080, 1200],
