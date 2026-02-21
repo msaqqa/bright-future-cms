@@ -12,6 +12,7 @@ export const metadata = {
 export default async function RootLayout(props: { children: React.ReactNode }) {
   const { children } = props
   const payload = await getPayload({ config: configPromise })
+  const headerData = await payload.findGlobal({ slug: 'header' })
   const footerData = await payload.findGlobal({ slug: 'footer' })
 
   return (
@@ -45,7 +46,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
         <link rel="stylesheet" href="/css/custom.css" media="screen" />
       </head>
       <body>
-        <Header />
+        <Header data={headerData as any} />
         <main>{children}</main>
         <Footer data={footerData as any} />
       </body>

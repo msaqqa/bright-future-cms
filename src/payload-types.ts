@@ -360,10 +360,17 @@ export interface Header {
  */
 export interface Footer {
   id: number;
-  email?: string | null;
-  phone?: string | null;
-  location?: string | null;
-  locationUrl?: string | null;
+  contactItems?:
+    | {
+        title?: string | null;
+        details: {
+          label: string;
+          link: string;
+        };
+        icon?: (number | null) | Media;
+        id?: string | null;
+      }[]
+    | null;
   footerLogo?: (number | null) | Media;
   aboutText?: string | null;
   socialLinks?:
@@ -525,10 +532,19 @@ export interface HeaderSelect<T extends boolean = true> {
  * via the `definition` "footer_select".
  */
 export interface FooterSelect<T extends boolean = true> {
-  email?: T;
-  phone?: T;
-  location?: T;
-  locationUrl?: T;
+  contactItems?:
+    | T
+    | {
+        title?: T;
+        details?:
+          | T
+          | {
+              label?: T;
+              link?: T;
+            };
+        icon?: T;
+        id?: T;
+      };
   footerLogo?: T;
   aboutText?: T;
   socialLinks?:

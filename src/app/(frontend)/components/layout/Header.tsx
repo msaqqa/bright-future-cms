@@ -1,23 +1,21 @@
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { getPayload } from 'payload'
-import configPromise from '@payload-config'
 import Topbar from './Topbar'
 import { getMedia } from '../../lib/media'
+import { THeaderData } from '../../types/layout'
 
-export default async function Header() {
-  const payload = await getPayload({ config: configPromise })
-  const headerData = await payload.findGlobal({ slug: 'header' })
+export default async function Header({ data }: { data: THeaderData }) {
+  if (!data) return null
 
-  const logoUrl = getMedia(headerData.logo as any)
+  const logoUrl = getMedia(data.logo)
 
   return (
     <>
       <Topbar
-        email={headerData.email || ''}
-        phone={headerData.phone || ''}
-        socialLinks={headerData.socialLinks || []}
+        email={data.email || ''}
+        phone={data.phone || ''}
+        socialLinks={data.socialLinks || []}
       />
 
       <header className="main-header">
@@ -34,7 +32,7 @@ export default async function Header() {
               {/* Main Menu */}
               <div className="collapse navbar-collapse main-menu">
                 <ul className="navbar-nav mr-auto" id="menu">
-                  {headerData.navItems?.map((item, index) => (
+                  {data.navItems?.map((item, index) => (
                     <li key={index} className={`nav-item ${item.hasSubMenu ? 'submenu' : ''}`}>
                       <Link href={item.link} className="nav-link">
                         {item.label}
