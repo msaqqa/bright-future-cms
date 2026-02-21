@@ -1,8 +1,12 @@
+import { revalidateAll } from '@/hooks/revalidate'
 import { GlobalConfig } from 'payload'
 
 export const Home: GlobalConfig = {
   slug: 'home-page',
   label: 'Home Page',
+  hooks: {
+    afterChange: [revalidateAll],
+  },
   admin: {
     group: 'Layout',
   },

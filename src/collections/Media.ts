@@ -1,7 +1,11 @@
+import { revalidateAll } from '@/hooks/revalidate'
 import type { CollectionConfig } from 'payload'
 
 export const Media: CollectionConfig = {
   slug: 'media',
+  hooks: {
+    afterChange: [revalidateAll],
+  },
   access: {
     read: () => true,
   },
