@@ -1,67 +1,132 @@
-# Payload Blank Template
+# 🌟 Bright Future CMS
 
-This template comes configured with the bare minimum to get started on anything you need.
+A headless CMS built with **Payload CMS v3**, **Next.js 15**, and **PostgreSQL** — featuring a fully integrated media management system powered by **Cloudflare R2**.
 
-## Quick start
+---
 
-This template can be deployed directly from our Cloud hosting and it will setup MongoDB and cloud S3 object storage for media.
+## 🧩 Tech Stack
 
-## Quick Start - local setup
+| Layer | Technology |
+|-------|-----------|
+| Framework | Next.js 15 (App Router) |
+| CMS | Payload CMS v3 |
+| Database | PostgreSQL (Supabase) |
+| Media Storage | Cloudflare R2 (S3-compatible) |
+| ORM | Drizzle ORM |
+| Rich Text | Lexical Editor |
+| Runtime | Node.js ≥ 20.9.0 |
+| Package Manager | pnpm |
 
-To spin up this template locally, follow these steps:
+---
 
-### Clone
+## ✨ Features
 
-After you click the `Deploy` button above, you'll want to have standalone copy of this repo on your machine. If you've already cloned this repo, skip to [Development](#development).
+- **Admin Panel** — Payload CMS provides a fully-featured admin dashboard at `/admin` where you can manage all content, media, users, and settings without touching any code.
+- **Headless Architecture** — Content is served via REST API and can be consumed by any frontend.
+- **Media Management** — Upload images and files directly from the admin panel. All media is stored on Cloudflare R2 and served via a public CDN URL.
+- **Role-Based Access** — Control who can read, create, update, or delete content.
+- **Rich Text Editing** — Powered by the Lexical editor for a modern writing experience.
+- **Type Safety** — Auto-generated TypeScript types from your Payload config.
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js `^18.20.2` or `>=20.9.0`
+- pnpm `^9` or `^10`
+- PostgreSQL database (e.g. Supabase)
+- Cloudflare R2 bucket
+
+### Installation
+
+```bash
+git clone https://github.com/your-username/bright-future-cms.git
+cd bright-future-cms
+pnpm install
+```
+
+### Environment Variables
+
+Create a `.env` file in the root directory:
+
+```env
+# Server
+SERVER_URL=http://localhost:3000
+
+# Database
+DATABASE_URL=postgresql://...
+
+# Payload
+PAYLOAD_SECRET=your-secret-key
+
+# Cloudflare R2
+S3_BUCKET=your-bucket-name
+S3_ENDPOINT=https://your-account-id.r2.cloudflarestorage.com
+S3_ACCESS_KEY=your-access-key-id
+S3_SECRET_KEY=your-secret-access-key
+S3_PUBLIC_URL=https://pub-xxxx.r2.dev
+```
 
 ### Development
 
-1. First [clone the repo](#clone) if you have not done so already
-2. `cd my-project && cp .env.example .env` to copy the example environment variables. You'll need to add the `MONGODB_URL` from your Cloud project to your `.env` if you want to use S3 storage and the MongoDB database that was created for you.
+```bash
+pnpm dev
+```
 
-3. `pnpm install && pnpm dev` to install dependencies and start the dev server
-4. open `http://localhost:3000` to open the app in your browser
+Open [http://localhost:3000/admin](http://localhost:3000/admin) to access the admin panel.
 
-That's it! Changes made in `./src` will be reflected in your app. Follow the on-screen instructions to login and create your first admin user. Then check out [Production](#production) once you're ready to build and serve your app, and [Deployment](#deployment) when you're ready to go live.
+---
 
-#### Docker (Optional)
+## 📁 Project Structure
 
-If you prefer to use Docker for local development instead of a local MongoDB instance, the provided docker-compose.yml file can be used.
+```
+src/
+├── app/
+│   ├── (frontend)/     # Frontend pages and components
+│   └── (payload)/      # Payload CMS routes
+├── collections/
+│   ├── Users.ts        # Users collection
+│   └── Media.ts        # Media collection (Cloudflare R2)
+├── globals/
+│   ├── Header.ts
+│   ├── Footer.ts
+│   └── Home.ts
+└── payload.config.ts   # Main Payload configuration
+```
 
-To do so, follow these steps:
+---
 
-- Modify the `MONGODB_URL` in your `.env` file to `mongodb://127.0.0.1/<dbname>`
-- Modify the `docker-compose.yml` file's `MONGODB_URL` to match the above `<dbname>`
-- Run `docker-compose up` to start the database, optionally pass `-d` to run in the background.
+## 🖼️ Media Storage
 
-## How it works
+All media is stored on **Cloudflare R2** and served directly via a public CDN URL — no routing through the Next.js server.
 
-The Payload config is tailored specifically to the needs of most websites. It is pre-configured in the following ways:
+When you upload a file from the admin panel, it is stored on R2 and the public URL is saved directly in the database.
 
-### Collections
+---
 
-See the [Collections](https://payloadcms.com/docs/configuration/collections) docs for details on how to extend this functionality.
+## 📦 Build
 
-- #### Users (Authentication)
+```bash
+pnpm build
+pnpm start
+```
 
-  Users are auth-enabled collections that have access to the admin panel.
+---
 
-  For additional help, see the official [Auth Example](https://github.com/payloadcms/payload/tree/main/examples/auth) or the [Authentication](https://payloadcms.com/docs/authentication/overview#authentication-overview) docs.
+## 🛠️ Useful Commands
 
-- #### Media
+```bash
+pnpm dev                    # Start development server
+pnpm build                  # Build for production
+pnpm generate:types         # Regenerate Payload TypeScript types
+pnpm generate:importmap     # Regenerate import map
+pnpm lint                   # Run ESLint
+```
 
-  This is the uploads enabled collection. It features pre-configured sizes, focal point and manual resizing to help you manage your pictures.
+---
 
-### Docker
+## 📄 License
 
-Alternatively, you can use [Docker](https://www.docker.com) to spin up this template locally. To do so, follow these steps:
-
-1. Follow [steps 1 and 2 from above](#development), the docker-compose file will automatically use the `.env` file in your project root
-1. Next run `docker-compose up`
-1. Follow [steps 4 and 5 from above](#development) to login and create your first admin user
-
-That's it! The Docker instance will help you get up and running quickly while also standardizing the development environment across your teams.
-
-## Questions
-
-If you have any issues or questions, reach out to us on [Discord](https://discord.com/invite/payload) or start a [GitHub discussion](https://github.com/payloadcms/payload/discussions).
+MIT
