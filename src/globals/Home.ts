@@ -1,11 +1,16 @@
-import { revalidateAll } from '@/hooks/revalidate'
+import { revalidatePath } from 'next/cache'
 import { GlobalConfig } from 'payload'
 
 export const Home: GlobalConfig = {
   slug: 'home-page',
   label: 'Home Page',
   hooks: {
-    afterChange: [revalidateAll],
+    afterChange: [
+      async () => {
+        revalidatePath('/', 'layout')
+        console.log('Route Revalidated.')
+      },
+    ],
   },
   admin: {
     group: 'Layout',
