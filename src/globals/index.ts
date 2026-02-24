@@ -1,7 +1,7 @@
 import { Header } from './Header'
 import { Footer } from './Footer'
 import { Home } from './Home'
-import { Elektroinstallation } from './Elektroinstallation'
+import { Elektroinstallation } from './Temp'
 import { Photovoltaik } from './Photovoltaik'
 import { Energiespeicher } from './Energiespeicher'
 import { Balkonkraftwerke } from './Balkonkraftwerke'
