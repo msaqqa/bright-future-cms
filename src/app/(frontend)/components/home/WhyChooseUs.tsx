@@ -27,11 +27,11 @@ export default function WhyChooseUs({ data }: TWhyChooseUsData) {
                   className="why-choose-item wow fadeInUp"
                   data-wow-delay={`${(index + 1) * 0.25}s`}
                 >
-                  <div className="why-choose-image">
-                    {item.image && (
+                  {item.image && (
+                    <div className="why-choose-image">
                       <Image src={image.url} alt={image.alt} width={400} height={250} />
-                    )}
-                  </div>
+                    </div>
+                  )}
 
                   <div className="why-choose-content">
                     <div className="why-choose-icon">

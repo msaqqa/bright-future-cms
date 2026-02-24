@@ -1,16 +1,12 @@
 import { revalidatePath } from 'next/cache'
 import { GlobalConfig } from 'payload'
+import { InfobarSection } from './common/sections'
 
 export const Home: GlobalConfig = {
   slug: 'home-page',
   label: 'Home Page',
   hooks: {
-    afterChange: [
-      async () => {
-        revalidatePath('/', 'layout')
-        console.log('Route Revalidated.')
-      },
-    ],
+    afterChange: [async () => revalidatePath('/', 'layout')],
   },
   admin: {
     group: 'Layout',
@@ -146,28 +142,7 @@ export const Home: GlobalConfig = {
         // Infobar Section
         {
           label: 'Infobar Section',
-          fields: [
-            {
-              name: 'infobar',
-              type: 'group',
-              fields: [
-                { name: 'title', type: 'text', required: true },
-                { name: 'description', type: 'richText' },
-                {
-                  name: 'image',
-                  type: 'upload',
-                  relationTo: 'media',
-                  label: 'Item Image',
-                },
-                {
-                  name: 'icon',
-                  type: 'upload',
-                  relationTo: 'media',
-                  label: 'Item Icon (SVG)',
-                },
-              ],
-            },
-          ],
+          fields: [InfobarSection],
         },
         // Why Bright Future Energy Section
         {

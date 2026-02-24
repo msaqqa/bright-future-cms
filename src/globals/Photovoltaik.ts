@@ -2,9 +2,9 @@ import { revalidatePath } from 'next/cache'
 import { GlobalConfig } from 'payload'
 import { PageHeaderSection } from './common/sections'
 
-export const Elektroinstallation: GlobalConfig = {
-  slug: 'elektroinstallation-page',
-  label: 'Elektroinstallation Page',
+export const Photovoltaik: GlobalConfig = {
+  slug: 'photovoltaik-page',
+  label: 'Photovoltaik Page',
   hooks: {
     afterChange: [async () => revalidatePath('/', 'layout')],
   },
@@ -24,9 +24,9 @@ export const Elektroinstallation: GlobalConfig = {
           label: 'Page Features',
           fields: [
             {
-              name: 'elektroinstallation',
+              name: 'photovoltaik',
               type: 'group',
-              label: 'Elektroinstallation Content',
+              label: 'Photovoltaik Content',
               fields: [
                 {
                   name: 'title',
@@ -34,14 +34,9 @@ export const Elektroinstallation: GlobalConfig = {
                   label: 'Section Title',
                 },
                 {
-                  name: 'description',
-                  type: 'text',
-                  label: 'Section Description',
-                },
-                {
                   name: 'list',
                   type: 'array',
-                  label: 'Feature List',
+                  label: 'Steps List',
                   fields: [
                     {
                       name: 'title',
@@ -53,18 +48,13 @@ export const Elektroinstallation: GlobalConfig = {
                       type: 'text',
                       label: 'Item Description',
                     },
+                    {
+                      name: 'image',
+                      type: 'upload',
+                      relationTo: 'media',
+                      label: 'Item Image',
+                    },
                   ],
-                },
-                {
-                  name: 'closingText',
-                  type: 'text',
-                  label: 'Section Closing Text',
-                },
-                {
-                  name: 'image',
-                  type: 'upload',
-                  relationTo: 'media',
-                  label: 'Section Image',
                 },
               ],
             },

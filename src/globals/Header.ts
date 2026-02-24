@@ -5,12 +5,7 @@ export const Header: GlobalConfig = {
   slug: 'header',
   label: 'Header Settings',
   hooks: {
-    afterChange: [
-      async () => {
-        revalidatePath('/', 'layout')
-        console.log('Route Revalidated.')
-      },
-    ],
+    afterChange: [async () => revalidatePath('/', 'layout')],
   },
   admin: {
     group: 'Layout',

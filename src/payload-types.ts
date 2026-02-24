@@ -91,11 +91,29 @@ export interface Config {
     header: Header;
     footer: Footer;
     'home-page': HomePage;
+    'elektroinstallation-page': ElektroinstallationPage;
+    'photovoltaik-page': PhotovoltaikPage;
+    'energiespeicher-page': EnergiespeicherPage;
+    'balkonkraftwerke-page': BalkonkraftwerkePage;
+    'wallbox-page': WallboxPage;
+    'strom-gas-page': StromGasPage;
+    'ueber-page': UeberPage;
+    'unser-service-page': UnserServicePage;
+    'contact-page': ContactPage;
   };
   globalsSelect: {
     header: HeaderSelect<false> | HeaderSelect<true>;
     footer: FooterSelect<false> | FooterSelect<true>;
     'home-page': HomePageSelect<false> | HomePageSelect<true>;
+    'elektroinstallation-page': ElektroinstallationPageSelect<false> | ElektroinstallationPageSelect<true>;
+    'photovoltaik-page': PhotovoltaikPageSelect<false> | PhotovoltaikPageSelect<true>;
+    'energiespeicher-page': EnergiespeicherPageSelect<false> | EnergiespeicherPageSelect<true>;
+    'balkonkraftwerke-page': BalkonkraftwerkePageSelect<false> | BalkonkraftwerkePageSelect<true>;
+    'wallbox-page': WallboxPageSelect<false> | WallboxPageSelect<true>;
+    'strom-gas-page': StromGasPageSelect<false> | StromGasPageSelect<true>;
+    'ueber-page': UeberPageSelect<false> | UeberPageSelect<true>;
+    'unser-service-page': UnserServicePageSelect<false> | UnserServicePageSelect<true>;
+    'contact-page': ContactPageSelect<false> | ContactPageSelect<true>;
   };
   locale: null;
   user: User;
@@ -495,6 +513,338 @@ export interface HomePage {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "elektroinstallation-page".
+ */
+export interface ElektroinstallationPage {
+  id: number;
+  pageHeader?: {
+    title?: string | null;
+    breadcrumbLink?: {
+      label?: string | null;
+      url?: string | null;
+    };
+    breadcrumbActive?: string | null;
+    backgroundImage?: (number | null) | Media;
+  };
+  elektroinstallation?: {
+    title?: string | null;
+    description?: string | null;
+    list?:
+      | {
+          title?: string | null;
+          description?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+    closingText?: string | null;
+    image?: (number | null) | Media;
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "photovoltaik-page".
+ */
+export interface PhotovoltaikPage {
+  id: number;
+  pageHeader?: {
+    title?: string | null;
+    breadcrumbLink?: {
+      label?: string | null;
+      url?: string | null;
+    };
+    breadcrumbActive?: string | null;
+    backgroundImage?: (number | null) | Media;
+  };
+  photovoltaik?: {
+    title?: string | null;
+    list?:
+      | {
+          title?: string | null;
+          description?: string | null;
+          image?: (number | null) | Media;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "energiespeicher-page".
+ */
+export interface EnergiespeicherPage {
+  id: number;
+  pageHeader?: {
+    title?: string | null;
+    breadcrumbLink?: {
+      label?: string | null;
+      url?: string | null;
+    };
+    breadcrumbActive?: string | null;
+    backgroundImage?: (number | null) | Media;
+  };
+  info?: {
+    title?: string | null;
+    description?: string | null;
+    image?: (number | null) | Media;
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "balkonkraftwerke-page".
+ */
+export interface BalkonkraftwerkePage {
+  id: number;
+  pageHeader?: {
+    title?: string | null;
+    breadcrumbLink?: {
+      label?: string | null;
+      url?: string | null;
+    };
+    breadcrumbActive?: string | null;
+    backgroundImage?: (number | null) | Media;
+  };
+  info?: {
+    title?: string | null;
+    description?: string | null;
+    descriptionSecondary?: string | null;
+    image?: (number | null) | Media;
+  };
+  features?: {
+    title?: string | null;
+    list?:
+      | {
+          title?: string | null;
+          description?: string | null;
+          image?: (number | null) | Media;
+          id?: string | null;
+        }[]
+      | null;
+    closingText?: string | null;
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "wallbox-page".
+ */
+export interface WallboxPage {
+  id: number;
+  pageHeader?: {
+    title?: string | null;
+    breadcrumbLink?: {
+      label?: string | null;
+      url?: string | null;
+    };
+    breadcrumbActive?: string | null;
+    backgroundImage?: (number | null) | Media;
+  };
+  info?: {
+    title?: string | null;
+    description?: string | null;
+    descriptionSecondary?: string | null;
+    image?: (number | null) | Media;
+  };
+  features?: {
+    title?: string | null;
+    list?:
+      | {
+          title?: string | null;
+          description?: string | null;
+          image?: (number | null) | Media;
+          id?: string | null;
+        }[]
+      | null;
+    closingText?: string | null;
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "strom-gas-page".
+ */
+export interface StromGasPage {
+  id: number;
+  pageHeader?: {
+    title?: string | null;
+    breadcrumbLink?: {
+      label?: string | null;
+      url?: string | null;
+    };
+    breadcrumbActive?: string | null;
+    backgroundImage?: (number | null) | Media;
+  };
+  info?: {
+    title?: string | null;
+    description?: string | null;
+    descriptionSecondary?: string | null;
+    image?: (number | null) | Media;
+  };
+  features?: {
+    title?: string | null;
+    list?:
+      | {
+          title?: string | null;
+          description?: string | null;
+          image?: (number | null) | Media;
+          id?: string | null;
+        }[]
+      | null;
+    closingText?: string | null;
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ueber-page".
+ */
+export interface UeberPage {
+  id: number;
+  pageHeader?: {
+    title?: string | null;
+    breadcrumbLink?: {
+      label?: string | null;
+      url?: string | null;
+    };
+    breadcrumbActive?: string | null;
+    backgroundImage?: (number | null) | Media;
+  };
+  info?: {
+    title?: string | null;
+    description?: string | null;
+    descriptionSecondary?: string | null;
+    firstImage?: (number | null) | Media;
+    secondImage?: (number | null) | Media;
+  };
+  features?: {
+    title?: string | null;
+    list?:
+      | {
+          title?: string | null;
+          description?: string | null;
+          image?: (number | null) | Media;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  infobar: {
+    title: string;
+    description?: {
+      root: {
+        type: string;
+        children: {
+          type: any;
+          version: number;
+          [k: string]: unknown;
+        }[];
+        direction: ('ltr' | 'rtl') | null;
+        format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+        indent: number;
+        version: number;
+      };
+      [k: string]: unknown;
+    } | null;
+    image?: (number | null) | Media;
+    icon?: (number | null) | Media;
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "unser-service-page".
+ */
+export interface UnserServicePage {
+  id: number;
+  pageHeader?: {
+    title?: string | null;
+    breadcrumbLink?: {
+      label?: string | null;
+      url?: string | null;
+    };
+    breadcrumbActive?: string | null;
+    backgroundImage?: (number | null) | Media;
+  };
+  planung?: {
+    title?: string | null;
+    description?: string | null;
+    image?: (number | null) | Media;
+  };
+  technische?: {
+    title?: string | null;
+    description?: string | null;
+    list?: {
+      title?: string | null;
+      items?:
+        | {
+            title?: string | null;
+            description?: string | null;
+            id?: string | null;
+          }[]
+        | null;
+    };
+    closingText?: string | null;
+    image?: (number | null) | Media;
+  };
+  qualifizierte?: {
+    title?: string | null;
+    description?: string | null;
+    list?:
+      | {
+          title?: string | null;
+          description?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+    closingText?: string | null;
+    image?: (number | null) | Media;
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "contact-page".
+ */
+export interface ContactPage {
+  id: number;
+  pageHeader?: {
+    title?: string | null;
+    breadcrumbLink?: {
+      label?: string | null;
+      url?: string | null;
+    };
+    breadcrumbActive?: string | null;
+    backgroundImage?: (number | null) | Media;
+  };
+  contactInfo?: {
+    title?: string | null;
+    contactItems?:
+      | {
+          title: string;
+          content: string;
+          image: number | Media;
+          icon: number | Media;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  googleMap?: {
+    mapUrl?: string | null;
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "header_select".
  */
 export interface HeaderSelect<T extends boolean = true> {
@@ -667,6 +1017,396 @@ export interface HomePageSelect<T extends boolean = true> {
               link?: T;
             };
         image?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "elektroinstallation-page_select".
+ */
+export interface ElektroinstallationPageSelect<T extends boolean = true> {
+  pageHeader?:
+    | T
+    | {
+        title?: T;
+        breadcrumbLink?:
+          | T
+          | {
+              label?: T;
+              url?: T;
+            };
+        breadcrumbActive?: T;
+        backgroundImage?: T;
+      };
+  elektroinstallation?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        list?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              id?: T;
+            };
+        closingText?: T;
+        image?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "photovoltaik-page_select".
+ */
+export interface PhotovoltaikPageSelect<T extends boolean = true> {
+  pageHeader?:
+    | T
+    | {
+        title?: T;
+        breadcrumbLink?:
+          | T
+          | {
+              label?: T;
+              url?: T;
+            };
+        breadcrumbActive?: T;
+        backgroundImage?: T;
+      };
+  photovoltaik?:
+    | T
+    | {
+        title?: T;
+        list?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              image?: T;
+              id?: T;
+            };
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "energiespeicher-page_select".
+ */
+export interface EnergiespeicherPageSelect<T extends boolean = true> {
+  pageHeader?:
+    | T
+    | {
+        title?: T;
+        breadcrumbLink?:
+          | T
+          | {
+              label?: T;
+              url?: T;
+            };
+        breadcrumbActive?: T;
+        backgroundImage?: T;
+      };
+  info?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        image?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "balkonkraftwerke-page_select".
+ */
+export interface BalkonkraftwerkePageSelect<T extends boolean = true> {
+  pageHeader?:
+    | T
+    | {
+        title?: T;
+        breadcrumbLink?:
+          | T
+          | {
+              label?: T;
+              url?: T;
+            };
+        breadcrumbActive?: T;
+        backgroundImage?: T;
+      };
+  info?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        descriptionSecondary?: T;
+        image?: T;
+      };
+  features?:
+    | T
+    | {
+        title?: T;
+        list?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              image?: T;
+              id?: T;
+            };
+        closingText?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "wallbox-page_select".
+ */
+export interface WallboxPageSelect<T extends boolean = true> {
+  pageHeader?:
+    | T
+    | {
+        title?: T;
+        breadcrumbLink?:
+          | T
+          | {
+              label?: T;
+              url?: T;
+            };
+        breadcrumbActive?: T;
+        backgroundImage?: T;
+      };
+  info?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        descriptionSecondary?: T;
+        image?: T;
+      };
+  features?:
+    | T
+    | {
+        title?: T;
+        list?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              image?: T;
+              id?: T;
+            };
+        closingText?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "strom-gas-page_select".
+ */
+export interface StromGasPageSelect<T extends boolean = true> {
+  pageHeader?:
+    | T
+    | {
+        title?: T;
+        breadcrumbLink?:
+          | T
+          | {
+              label?: T;
+              url?: T;
+            };
+        breadcrumbActive?: T;
+        backgroundImage?: T;
+      };
+  info?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        descriptionSecondary?: T;
+        image?: T;
+      };
+  features?:
+    | T
+    | {
+        title?: T;
+        list?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              image?: T;
+              id?: T;
+            };
+        closingText?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ueber-page_select".
+ */
+export interface UeberPageSelect<T extends boolean = true> {
+  pageHeader?:
+    | T
+    | {
+        title?: T;
+        breadcrumbLink?:
+          | T
+          | {
+              label?: T;
+              url?: T;
+            };
+        breadcrumbActive?: T;
+        backgroundImage?: T;
+      };
+  info?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        descriptionSecondary?: T;
+        firstImage?: T;
+        secondImage?: T;
+      };
+  features?:
+    | T
+    | {
+        title?: T;
+        list?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              image?: T;
+              id?: T;
+            };
+      };
+  infobar?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        image?: T;
+        icon?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "unser-service-page_select".
+ */
+export interface UnserServicePageSelect<T extends boolean = true> {
+  pageHeader?:
+    | T
+    | {
+        title?: T;
+        breadcrumbLink?:
+          | T
+          | {
+              label?: T;
+              url?: T;
+            };
+        breadcrumbActive?: T;
+        backgroundImage?: T;
+      };
+  planung?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        image?: T;
+      };
+  technische?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        list?:
+          | T
+          | {
+              title?: T;
+              items?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    id?: T;
+                  };
+            };
+        closingText?: T;
+        image?: T;
+      };
+  qualifizierte?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        list?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              id?: T;
+            };
+        closingText?: T;
+        image?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "contact-page_select".
+ */
+export interface ContactPageSelect<T extends boolean = true> {
+  pageHeader?:
+    | T
+    | {
+        title?: T;
+        breadcrumbLink?:
+          | T
+          | {
+              label?: T;
+              url?: T;
+            };
+        breadcrumbActive?: T;
+        backgroundImage?: T;
+      };
+  contactInfo?:
+    | T
+    | {
+        title?: T;
+        contactItems?:
+          | T
+          | {
+              title?: T;
+              content?: T;
+              image?: T;
+              icon?: T;
+              id?: T;
+            };
+      };
+  googleMap?:
+    | T
+    | {
+        mapUrl?: T;
       };
   updatedAt?: T;
   createdAt?: T;
