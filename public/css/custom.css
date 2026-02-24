@@ -175,7 +175,6 @@ a:focus {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  visibility: hidden;
   overflow: hidden;
 }
 
@@ -1098,7 +1097,7 @@ header.main-header .header-sticky.active {
 
 .about-image {
   position: relative;
-  background: url(/images/about-right-shape.svg) no-repeat top 30px right 6%;
+  background: url(../images/about-right-shape.svg) no-repeat top 30px right 6%;
   background-size: 18% auto;
   padding-bottom: 100px;
   margin-right: 20px;
@@ -3848,10 +3847,11 @@ footer.main-footer {
 
 .page-header {
   position: relative;
-  background: url(/images/header-banner.jpg) no-repeat center center;
   padding: 260px 0 100px;
   margin-top: -186px;
   overflow: hidden;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .page-header:before {

@@ -2,9 +2,9 @@ import { revalidatePath } from 'next/cache'
 import { GlobalConfig } from 'payload'
 import { PageHeaderSection } from './common/sections'
 
-export const Elektroinstallation: GlobalConfig = {
-  slug: 'elektroinstallation-page',
-  label: 'Elektroinstallation Page',
+export const Energiespeicher: GlobalConfig = {
+  slug: 'energiespeicher-page',
+  label: 'Energiespeicher Page',
   hooks: {
     afterChange: [async () => revalidatePath('/', 'layout')],
   },
@@ -21,12 +21,12 @@ export const Elektroinstallation: GlobalConfig = {
           fields: [PageHeaderSection],
         },
         {
-          label: 'Page Features',
+          label: 'Page Info',
           fields: [
             {
-              name: 'elektroinstallation',
+              name: 'info',
               type: 'group',
-              label: 'Elektroinstallation Content',
+              label: 'Energiespeicher Info',
               fields: [
                 {
                   name: 'title',
@@ -37,28 +37,6 @@ export const Elektroinstallation: GlobalConfig = {
                   name: 'description',
                   type: 'text',
                   label: 'Section Description',
-                },
-                {
-                  name: 'list',
-                  type: 'array',
-                  label: 'Feature List',
-                  fields: [
-                    {
-                      name: 'title',
-                      type: 'text',
-                      label: 'Item Title',
-                    },
-                    {
-                      name: 'description',
-                      type: 'text',
-                      label: 'Item Description',
-                    },
-                  ],
-                },
-                {
-                  name: 'closingText',
-                  type: 'text',
-                  label: 'Section Closing Text',
                 },
                 {
                   name: 'image',

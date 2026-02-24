@@ -5,12 +5,7 @@ export const Footer: GlobalConfig = {
   slug: 'footer',
   label: 'Footer Settings',
   hooks: {
-    afterChange: [
-      async () => {
-        revalidatePath('/', 'layout')
-        console.log('Route Revalidated.')
-      },
-    ],
+    afterChange: [async () => revalidatePath('/', 'layout')],
   },
   admin: {
     group: 'Layout',

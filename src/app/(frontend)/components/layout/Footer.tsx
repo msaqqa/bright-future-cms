@@ -16,7 +16,7 @@ export default function Footer({ data }: { data: TFooterData }) {
             {data.contactItems?.map((item, index) => {
               const icon = getMedia(item.icon, item.title)
               return (
-                <div className="col-lg-4">
+                <div key={index} className="col-lg-4">
                   <div className="footer-contact-box wow fadeInUp" data-wow-delay="0.25s">
                     <div className="contact-icon-box">
                       <Image src={icon.url} alt={icon.alt} width={40} height={40} priority />

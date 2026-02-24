@@ -6,13 +6,13 @@ import { getMedia } from '../../lib/media'
 export default function Hero({ data }: { data: THeroData }) {
   if (!data) return null
 
-  const bgUrl = getMedia(data.backgroundImage)
+  const image = getMedia(data.backgroundImage)
 
   return (
     <div
       className="hero parallaxie"
       style={{
-        backgroundImage: `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(${bgUrl.url})`,
+        backgroundImage: `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(${image.url})`,
       }}
     >
       <div className="container">

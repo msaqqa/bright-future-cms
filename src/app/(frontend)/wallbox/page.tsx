@@ -5,17 +5,17 @@ import PageHeader from '../components/common/PageHeader'
 import PageInfo from '../components/common/PageInfo'
 import PageFeatures from '../components/common/PageFeatures'
 
-export default async function BalkonkraftwerkePage() {
+export default async function WallboxPage() {
   const payload = await getPayload({ config: configPromise })
-  const balkonData = await payload.findGlobal({
-    slug: 'balkonkraftwerke-page',
+  const wallboxData = await payload.findGlobal({
+    slug: 'wallbox-page',
   })
 
   return (
     <main>
-      <PageHeader data={balkonData.pageHeader as any} />
-      <PageInfo data={balkonData.info as any} />
-      <PageFeatures data={balkonData.features as any} />
+      <PageHeader data={wallboxData.pageHeader as any} />
+      <PageInfo data={wallboxData.info as any} />
+      <PageFeatures data={wallboxData.features as any} />
       <ContactForm />
     </main>
   )

@@ -29,19 +29,10 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
         <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen" />
         {/* <!-- SlickNav css --> */}
         <link rel="stylesheet" href="/css/slicknav.min.css" />
-        {/* <!-- Swiper css --> */}
-        <link rel="stylesheet" href="css/swiper-bundle.min.css" />
         {/* <!-- Font Awesome icon css--> */}
         <link rel="stylesheet" href="/css/all.min.css" media="screen" />
         {/* <!-- Animated css --> */}
         <link rel="stylesheet" href="/css/animate.css" />
-        {/* <!-- Magnific css --> */}
-        <link rel="stylesheet" href="/css/magnific-popup.css" />
-        {/* <!-- CDN Toastr css --> */}
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"
-        />
         {/* <!-- Main custom css --> */}
         <link rel="stylesheet" href="/css/custom.css" media="screen" />
       </head>

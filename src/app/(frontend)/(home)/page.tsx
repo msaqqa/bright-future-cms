@@ -7,7 +7,7 @@ import FAQ from '../components/home/FAQ'
 import ContactForm from '../components/common/ContactForm'
 import LatestNews from '../components/home/LatestNews'
 import WhyBrightFutureEnergy from '../components/home/WhyBrightFutureEnergy'
-import Infobar from '../components/home/Infobar'
+import Infobar from '../components/common/Infobar'
 
 export default async function HomePage() {
   const payload = await getPayload({ config: configPromise })
