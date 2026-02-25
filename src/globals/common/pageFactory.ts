@@ -10,7 +10,7 @@ export const createPageConfig = (slug: string, label: string): GlobalConfig => (
     afterChange: [async () => revalidatePath('/', 'layout')],
   },
   admin: {
-    group: 'Layout',
+    group: 'Pages',
   },
   fields: [
     {

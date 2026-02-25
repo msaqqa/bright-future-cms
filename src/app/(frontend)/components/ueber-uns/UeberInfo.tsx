@@ -35,7 +35,7 @@ export default function UeberInfo({ data }: { data: TUeberInfoData }) {
                 </h2>
               </div>
 
-              <div className="about-content wow fadeInUp" data-wow-delay="0.25s">
+              <div className="about-content">
                 <p>{data.description}</p>
                 <p>{data.descriptionSecondary}</p>
               </div>

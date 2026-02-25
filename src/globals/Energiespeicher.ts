@@ -1,15 +1,16 @@
 import { revalidatePath } from 'next/cache'
 import { GlobalConfig } from 'payload'
 import { PageHeaderSection } from './common/sections'
+import { SectionDesc, SectionImg, SectionTitle } from './common/fields'
 
 export const Energiespeicher: GlobalConfig = {
   slug: 'energiespeicher-page',
-  label: 'Energiespeicher Page',
+  label: 'Energiespeicher',
   hooks: {
     afterChange: [async () => revalidatePath('/', 'layout')],
   },
   admin: {
-    group: 'Layout',
+    group: 'Pages',
   },
   fields: [
     {
@@ -20,6 +21,7 @@ export const Energiespeicher: GlobalConfig = {
           label: 'Page Header',
           fields: [PageHeaderSection],
         },
+        // Page Info
         {
           label: 'Page Info',
           fields: [
@@ -27,24 +29,7 @@ export const Energiespeicher: GlobalConfig = {
               name: 'info',
               type: 'group',
               label: 'Energiespeicher Info',
-              fields: [
-                {
-                  name: 'title',
-                  type: 'text',
-                  label: 'Section Title',
-                },
-                {
-                  name: 'description',
-                  type: 'text',
-                  label: 'Section Description',
-                },
-                {
-                  name: 'image',
-                  type: 'upload',
-                  relationTo: 'media',
-                  label: 'Section Image',
-                },
-              ],
+              fields: [SectionTitle, SectionDesc, SectionImg],
             },
           ],
         },

@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { WhyBrightFutureEnergyData } from '../../types/home'
 import { getMedia } from '../../lib/media'
 
-export default function WhyBrightFutureEnergy({ data }: WhyBrightFutureEnergyData) {
+export default function WhyBrightFutureEnergy({ data }: { data: WhyBrightFutureEnergyData }) {
   if (!data) return null
 
   return (
@@ -18,15 +18,12 @@ export default function WhyBrightFutureEnergy({ data }: WhyBrightFutureEnergyDat
         </div>
 
         <div className="row">
-          {data.items?.map((item, index) => {
+          {data.items?.map((item) => {
             const image = getMedia(item.image, item.title)
             const icon = getMedia(item.icon, item.title)
             return (
-              <div key={index} className="col-lg-4 col-md-6">
-                <div
-                  className="why-choose-item wow fadeInUp"
-                  data-wow-delay={`${(index + 1) * 0.25}s`}
-                >
+              <div key={item.id} className="col-lg-4 col-md-6">
+                <div className="why-choose-item">
                   {item.image && (
                     <div className="why-choose-image">
                       <Image src={image.url} alt={image.alt} width={400} height={250} />

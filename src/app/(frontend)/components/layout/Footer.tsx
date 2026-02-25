@@ -3,8 +3,6 @@ import { TFooterData } from '../../types/layout'
 import { getMedia } from '../../lib/media'
 
 export default function Footer({ data }: { data: TFooterData }) {
-  if (!data) return null
-
   const logoImage = getMedia(data.footerLogo)
 
   return (
@@ -17,7 +15,7 @@ export default function Footer({ data }: { data: TFooterData }) {
               const icon = getMedia(item.icon, item.title)
               return (
                 <div key={index} className="col-lg-4">
-                  <div className="footer-contact-box wow fadeInUp" data-wow-delay="0.25s">
+                  <div className="footer-contact-box">
                     <div className="contact-icon-box">
                       <Image src={icon.url} alt={icon.alt} width={40} height={40} priority />
                     </div>

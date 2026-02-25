@@ -3,7 +3,7 @@ import { TTopbarData } from '../../types/layout'
 
 export default function Topbar({ email, phone, socialLinks }: TTopbarData) {
   return (
-    <div className="topbar wow fadeInUp">
+    <div className="topbar">
       <div className="container">
         <div className="row">
           <div className="col-md-8">
@@ -26,8 +26,8 @@ export default function Topbar({ email, phone, socialLinks }: TTopbarData) {
           <div className="col-md-4">
             <div className="header-social-links">
               <ul>
-                {socialLinks?.map((link, index) => (
-                  <li key={index}>
+                {socialLinks?.map((link) => (
+                  <li key={link.id}>
                     <a href={link.url} target="_blank" rel="noopener noreferrer">
                       <i
                         className={`fa-brands fa-${link.platform === 'facebook' ? 'facebook-f' : link.platform === 'linkedin' ? 'linkedin-in' : link.platform}`}

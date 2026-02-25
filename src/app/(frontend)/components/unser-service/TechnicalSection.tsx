@@ -1,7 +1,7 @@
 import { getMedia } from '../../lib/media'
 import { TTechnischeData } from '../../types/unser-service'
 
-export default function TechnischeSection({ data }: TTechnischeData) {
+export default function TechnischeSection({ data }: { data: TTechnischeData }) {
   if (!data) return null
   const image = getMedia(data.image, data.title)
 
@@ -14,8 +14,8 @@ export default function TechnischeSection({ data }: TTechnischeData) {
               <h2>{data.title}</h2>
               <p>{data.description}</p>
               <ul>
-                {data.list?.items?.map((item, i) => (
-                  <li key={i}>
+                {data.list?.items?.map((item) => (
+                  <li key={item.id}>
                     <h5>{item.title}</h5>
                     <p>{item.description}</p>
                   </li>

@@ -1,25 +1,32 @@
-import React from 'react'
+'use client'
+
+import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import Topbar from './Topbar'
 import { getMedia } from '../../lib/media'
 import { THeaderData } from '../../types/layout'
 
-export default async function Header({ data }: { data: THeaderData }) {
-  if (!data) return null
-
+export default function Header({ data }: { data: THeaderData }) {
   const logoUrl = getMedia(data.logo)
+  const [isSticky, setIsSticky] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const heroHeight = window.innerHeight
+      setIsSticky(window.scrollY > heroHeight * 0.9)
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   return (
     <>
-      <Topbar
-        email={data.email || ''}
-        phone={data.phone || ''}
-        socialLinks={data.socialLinks || []}
-      />
+      <Topbar email={data.email} phone={data.phone} socialLinks={data.socialLinks} />
 
       <header className="main-header">
-        <div className="header-sticky">
+        <div className={`header-sticky ${isSticky ? 'active' : ''}`}>
           <nav className="navbar navbar-expand-lg">
             <div className="container">
               {/* Logo */}
@@ -32,16 +39,16 @@ export default async function Header({ data }: { data: THeaderData }) {
               {/* Main Menu */}
               <div className="collapse navbar-collapse main-menu">
                 <ul className="navbar-nav mr-auto" id="menu">
-                  {data.navItems?.map((item, index) => (
-                    <li key={index} className={`nav-item ${item.hasSubMenu ? 'submenu' : ''}`}>
+                  {data.navItems?.map((item) => (
+                    <li key={item.id} className={`nav-item ${item.hasSubMenu ? 'submenu' : ''}`}>
                       <Link href={item.link} className="nav-link">
                         {item.label}
                       </Link>
 
                       {item.hasSubMenu && item.subMenuItems && (
                         <ul>
-                          {item.subMenuItems.map((subItem, subIndex) => (
-                            <li key={subIndex} className="nav-item">
+                          {item.subMenuItems.map((subItem) => (
+                            <li key={subItem.id} className="nav-item">
                               <Link href={subItem.link || '#'} className="nav-link">
                                 {subItem.label}
                               </Link>

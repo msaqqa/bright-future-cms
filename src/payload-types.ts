@@ -423,7 +423,7 @@ export interface HomePage {
   id: number;
   hero: {
     welcomeText?: string | null;
-    mainTitle?: string | null;
+    title?: string | null;
     description?: string | null;
     backgroundImage?: (number | null) | Media;
     primaryButton: {
@@ -455,8 +455,8 @@ export interface HomePage {
         id?: string | null;
       }[]
     | null;
-  infobar: {
-    title: string;
+  infobar?: {
+    title?: string | null;
     description?: {
       root: {
         type: string;
@@ -499,12 +499,12 @@ export interface HomePage {
         }[]
       | null;
   };
-  faq: {
-    title: string;
+  faq?: {
+    title?: string | null;
     description?: string | null;
-    button: {
-      label: string;
-      link: string;
+    button?: {
+      label?: string | null;
+      link?: string | null;
     };
     image?: (number | null) | Media;
   };
@@ -562,7 +562,6 @@ export interface PhotovoltaikPage {
     list?:
       | {
           title?: string | null;
-          description?: string | null;
           image?: (number | null) | Media;
           id?: string | null;
         }[]
@@ -620,7 +619,6 @@ export interface BalkonkraftwerkePage {
     list?:
       | {
           title?: string | null;
-          description?: string | null;
           image?: (number | null) | Media;
           id?: string | null;
         }[]
@@ -656,7 +654,6 @@ export interface WallboxPage {
     list?:
       | {
           title?: string | null;
-          description?: string | null;
           image?: (number | null) | Media;
           id?: string | null;
         }[]
@@ -692,7 +689,6 @@ export interface StromGasPage {
     list?:
       | {
           title?: string | null;
-          description?: string | null;
           image?: (number | null) | Media;
           id?: string | null;
         }[]
@@ -729,14 +725,13 @@ export interface UeberPage {
     list?:
       | {
           title?: string | null;
-          description?: string | null;
           image?: (number | null) | Media;
           id?: string | null;
         }[]
       | null;
   };
-  infobar: {
-    title: string;
+  infobar?: {
+    title?: string | null;
     description?: {
       root: {
         type: string;
@@ -832,7 +827,7 @@ export interface ContactPage {
           title: string;
           content: string;
           image: number | Media;
-          icon: number | Media;
+          icon?: (number | null) | Media;
           id?: string | null;
         }[]
       | null;
@@ -931,7 +926,7 @@ export interface HomePageSelect<T extends boolean = true> {
     | T
     | {
         welcomeText?: T;
-        mainTitle?: T;
+        title?: T;
         description?: T;
         backgroundImage?: T;
         primaryButton?:
@@ -1085,7 +1080,6 @@ export interface PhotovoltaikPageSelect<T extends boolean = true> {
           | T
           | {
               title?: T;
-              description?: T;
               image?: T;
               id?: T;
             };
@@ -1157,7 +1151,6 @@ export interface BalkonkraftwerkePageSelect<T extends boolean = true> {
           | T
           | {
               title?: T;
-              description?: T;
               image?: T;
               id?: T;
             };
@@ -1201,7 +1194,6 @@ export interface WallboxPageSelect<T extends boolean = true> {
           | T
           | {
               title?: T;
-              description?: T;
               image?: T;
               id?: T;
             };
@@ -1245,7 +1237,6 @@ export interface StromGasPageSelect<T extends boolean = true> {
           | T
           | {
               title?: T;
-              description?: T;
               image?: T;
               id?: T;
             };
@@ -1290,7 +1281,6 @@ export interface UeberPageSelect<T extends boolean = true> {
           | T
           | {
               title?: T;
-              description?: T;
               image?: T;
               id?: T;
             };

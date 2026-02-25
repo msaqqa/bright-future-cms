@@ -1,15 +1,17 @@
 import { revalidatePath } from 'next/cache'
 import { GlobalConfig } from 'payload'
 import { PageHeaderSection } from './common/sections'
+import { SectionClosing, SectionDesc, SectionImg, SectionTitle } from './common/fields'
+import { SectionList } from './common/groups'
 
 export const Elektroinstallation: GlobalConfig = {
   slug: 'elektroinstallation-page',
-  label: 'Elektroinstallation Page',
+  label: 'Elektroinstallation',
   hooks: {
     afterChange: [async () => revalidatePath('/', 'layout')],
   },
   admin: {
-    group: 'Layout',
+    group: 'Pages',
   },
   fields: [
     {
@@ -27,46 +29,7 @@ export const Elektroinstallation: GlobalConfig = {
               name: 'elektroinstallation',
               type: 'group',
               label: 'Elektroinstallation Content',
-              fields: [
-                {
-                  name: 'title',
-                  type: 'text',
-                  label: 'Section Title',
-                },
-                {
-                  name: 'description',
-                  type: 'text',
-                  label: 'Section Description',
-                },
-                {
-                  name: 'list',
-                  type: 'array',
-                  label: 'Feature List',
-                  fields: [
-                    {
-                      name: 'title',
-                      type: 'text',
-                      label: 'Item Title',
-                    },
-                    {
-                      name: 'description',
-                      type: 'text',
-                      label: 'Item Description',
-                    },
-                  ],
-                },
-                {
-                  name: 'closingText',
-                  type: 'text',
-                  label: 'Section Closing Text',
-                },
-                {
-                  name: 'image',
-                  type: 'upload',
-                  relationTo: 'media',
-                  label: 'Section Image',
-                },
-              ],
+              fields: [SectionTitle, SectionDesc, SectionList, SectionClosing, SectionImg],
             },
           ],
         },

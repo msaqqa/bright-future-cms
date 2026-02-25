@@ -1,15 +1,17 @@
 import { revalidatePath } from 'next/cache'
 import { GlobalConfig } from 'payload'
 import { InfobarSection, PageHeaderSection } from './common/sections'
+import { SectionDesc, SectionTitle } from './common/fields'
+import { SectionListImg } from './common/groups'
 
 export const UeberUns: GlobalConfig = {
   slug: 'ueber-page',
-  label: 'Ueber Uns Page',
+  label: 'Ueber Uns',
   hooks: {
     afterChange: [async () => revalidatePath('/', 'layout')],
   },
   admin: {
-    group: 'Layout',
+    group: 'Pages',
   },
   fields: [
     {
@@ -29,16 +31,8 @@ export const UeberUns: GlobalConfig = {
               type: 'group',
               label: 'Info Content',
               fields: [
-                {
-                  name: 'title',
-                  type: 'text',
-                  label: 'Section Title',
-                },
-                {
-                  name: 'description',
-                  type: 'text',
-                  label: 'Section Description',
-                },
+                SectionTitle,
+                SectionDesc,
                 {
                   name: 'descriptionSecondary',
                   type: 'text',
@@ -68,35 +62,7 @@ export const UeberUns: GlobalConfig = {
               name: 'features',
               type: 'group',
               label: 'Features Content',
-              fields: [
-                {
-                  name: 'title',
-                  type: 'text',
-                  label: 'Section Title',
-                },
-                {
-                  name: 'list',
-                  type: 'array',
-                  fields: [
-                    {
-                      name: 'title',
-                      type: 'text',
-                      label: 'Item Title',
-                    },
-                    {
-                      name: 'description',
-                      type: 'text',
-                      label: 'Item Description',
-                    },
-                    {
-                      name: 'image',
-                      type: 'upload',
-                      relationTo: 'media',
-                      label: 'Item Image',
-                    },
-                  ],
-                },
-              ],
+              fields: [SectionTitle, SectionListImg],
             },
           ],
         },

@@ -1,6 +1,7 @@
 import { Media, TFeatureItem } from './global'
 
 export type TUeberInfoData = {
+  id?: string
   title: string
   description: string
   descriptionSecondary: string

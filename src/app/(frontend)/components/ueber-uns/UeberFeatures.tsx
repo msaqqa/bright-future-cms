@@ -20,10 +20,7 @@ export default function UeberFeatures({ data }: { data: TUeberFeaturesData }) {
             const icon = getMedia(item.image, item.title)
             return (
               <div key={item.id || index} className="col-md-4">
-                <div
-                  className={`step-item ${(index + 1) % 2 == 0 ? 'step-1' : 'step-2'} wow fadeInUp`}
-                  data-wow-delay="0.25s"
-                >
+                <div className={`step-item ${(index + 1) % 2 == 0 ? 'step-1' : 'step-2'}`}>
                   <div className="step-header">
                     <div className="step-icon">
                       <figure>
