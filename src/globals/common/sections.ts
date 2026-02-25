@@ -1,15 +1,13 @@
 import { Field } from 'payload'
+import { SectionClosing, SectionDesc, SectionImg, SectionTitle } from './fields'
+import { SectionListImg } from './groups'
 
 export const PageHeaderSection: Field = {
   label: 'Page Header',
   type: 'group',
   name: 'pageHeader',
   fields: [
-    {
-      name: 'title',
-      type: 'text',
-      label: 'Main Title',
-    },
+    SectionTitle,
     {
       name: 'breadcrumbLink',
       type: 'group',
@@ -38,27 +36,14 @@ export const PageInfoSection: Field = {
   type: 'group',
   label: 'Info Content',
   fields: [
-    {
-      name: 'title',
-      type: 'text',
-      label: 'Section Title',
-    },
-    {
-      name: 'description',
-      type: 'text',
-      label: 'Section Description',
-    },
+    SectionTitle,
+    SectionDesc,
     {
       name: 'descriptionSecondary',
       type: 'text',
       label: 'Section Description Secondary',
     },
-    {
-      name: 'image',
-      type: 'upload',
-      relationTo: 'media',
-      label: 'Section Image',
-    },
+    SectionImg,
   ],
 }
 
@@ -66,40 +51,7 @@ export const PageFeaturesSection: Field = {
   name: 'features',
   type: 'group',
   label: 'Features Content',
-  fields: [
-    {
-      name: 'title',
-      type: 'text',
-      label: 'Section Title',
-    },
-    {
-      name: 'list',
-      type: 'array',
-      fields: [
-        {
-          name: 'title',
-          type: 'text',
-          label: 'Item Title',
-        },
-        {
-          name: 'description',
-          type: 'text',
-          label: 'Item Description',
-        },
-        {
-          name: 'image',
-          type: 'upload',
-          relationTo: 'media',
-          label: 'Item Image',
-        },
-      ],
-    },
-    {
-      name: 'closingText',
-      type: 'text',
-      label: 'Section Closing Text',
-    },
-  ],
+  fields: [SectionTitle, SectionListImg, SectionClosing],
 }
 
 export const InfobarSection: Field = {
@@ -107,19 +59,14 @@ export const InfobarSection: Field = {
   type: 'group',
   label: 'Infobar Content',
   fields: [
-    { name: 'title', type: 'text', required: true },
-    { name: 'description', type: 'richText' },
-    {
-      name: 'image',
-      type: 'upload',
-      relationTo: 'media',
-      label: 'Item Image',
-    },
+    SectionTitle,
+    { name: 'description', type: 'richText', label: 'Section Description' },
+    SectionImg,
     {
       name: 'icon',
       type: 'upload',
       relationTo: 'media',
-      label: 'Item Icon (SVG)',
+      label: 'Section Icon (SVG)',
     },
   ],
 }

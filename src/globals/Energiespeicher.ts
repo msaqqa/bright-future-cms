@@ -1,12 +1,11 @@
 import { revalidatePath } from 'next/cache'
 import { GlobalConfig } from 'payload'
 import { PageHeaderSection } from './common/sections'
-import { SectionClosing, SectionDesc, SectionImg, SectionTitle } from './common/fields'
-import { SectionList } from './common/groups'
+import { SectionDesc, SectionImg, SectionTitle } from './common/fields'
 
-export const Elektroinstallation: GlobalConfig = {
-  slug: 'elektroinstallation-page',
-  label: 'Elektroinstallation',
+export const Energiespeicher: GlobalConfig = {
+  slug: 'energiespeicher-page',
+  label: 'Energiespeicher',
   hooks: {
     afterChange: [async () => revalidatePath('/', 'layout')],
   },
@@ -22,14 +21,15 @@ export const Elektroinstallation: GlobalConfig = {
           label: 'Page Header',
           fields: [PageHeaderSection],
         },
+        // Page Info
         {
-          label: 'Page Features',
+          label: 'Page Info',
           fields: [
             {
-              name: 'elektroinstallation',
+              name: 'info',
               type: 'group',
-              label: 'Elektroinstallation Content',
-              fields: [SectionTitle, SectionDesc, SectionList, SectionClosing, SectionImg],
+              label: 'Energiespeicher Info',
+              fields: [SectionTitle, SectionDesc, SectionImg],
             },
           ],
         },

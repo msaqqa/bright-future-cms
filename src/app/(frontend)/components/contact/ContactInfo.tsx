@@ -1,7 +1,7 @@
 import { getMedia } from '../../lib/media'
 import { TContactInfoData } from '../../types/contact'
 
-export default function ContactInfo({ data }: TContactInfoData) {
+export default function ContactInfo({ data }: { data: TContactInfoData }) {
   if (!data) return null
 
   return (
@@ -20,7 +20,7 @@ export default function ContactInfo({ data }: TContactInfoData) {
             const iconImage = getMedia(item.icon)
 
             return (
-              <div key={index} className="col-lg-3 col-md-6">
+              <div key={item.id} className="col-lg-3 col-md-6">
                 <div className="contact-info-item">
                   <div className="contact-image">
                     <figure className="image-anime">

@@ -1,15 +1,17 @@
 import { revalidatePath } from 'next/cache'
 import { GlobalConfig } from 'payload'
 import { PageHeaderSection } from './common/sections'
+import { SectionTitle } from './common/fields'
+import { SectionListImg } from './common/groups'
 
 export const Photovoltaik: GlobalConfig = {
   slug: 'photovoltaik-page',
-  label: 'Photovoltaik Page',
+  label: 'Photovoltaik',
   hooks: {
     afterChange: [async () => revalidatePath('/', 'layout')],
   },
   admin: {
-    group: 'Layout',
+    group: 'Pages',
   },
   fields: [
     {
@@ -27,36 +29,7 @@ export const Photovoltaik: GlobalConfig = {
               name: 'photovoltaik',
               type: 'group',
               label: 'Photovoltaik Content',
-              fields: [
-                {
-                  name: 'title',
-                  type: 'text',
-                  label: 'Section Title',
-                },
-                {
-                  name: 'list',
-                  type: 'array',
-                  label: 'Steps List',
-                  fields: [
-                    {
-                      name: 'title',
-                      type: 'text',
-                      label: 'Item Title',
-                    },
-                    {
-                      name: 'description',
-                      type: 'text',
-                      label: 'Item Description',
-                    },
-                    {
-                      name: 'image',
-                      type: 'upload',
-                      relationTo: 'media',
-                      label: 'Item Image',
-                    },
-                  ],
-                },
-              ],
+              fields: [SectionTitle, SectionListImg],
             },
           ],
         },

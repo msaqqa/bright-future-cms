@@ -1,7 +1,7 @@
 import { getMedia } from '../../lib/media'
 import { TLeadsData } from '../../types/unser-service'
 
-export default function LeadsSection({ data }: TLeadsData) {
+export default function LeadsSection({ data }: { data: TLeadsData }) {
   if (!data) return null
   const image = getMedia(data.image, data.title)
 
@@ -21,8 +21,8 @@ export default function LeadsSection({ data }: TLeadsData) {
               <h2>{data.title}</h2>
               <p>{data.description}</p>
               <ul>
-                {data.list?.map((item, i) => (
-                  <li key={i}>
+                {data.list?.map((item) => (
+                  <li key={item.id}>
                     <h5>{item.title}</h5>
                     <p>{item.description}</p>
                   </li>

@@ -1,7 +1,7 @@
 import { TMapData } from '../../types/contact'
 import ContactForm from './ContactForm'
 
-export default function GoogleMap({ data }: TMapData) {
+export default function GoogleMap({ data }: { data: TMapData }) {
   if (!data || !data.mapUrl) return null
 
   return (

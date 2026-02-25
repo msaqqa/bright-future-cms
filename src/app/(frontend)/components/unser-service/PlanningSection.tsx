@@ -1,7 +1,7 @@
 import { getMedia } from '../../lib/media'
 import { TPlanungData } from '../../types/unser-service'
 
-export default function PlanungSection({ data }: TPlanungData) {
+export default function PlanungSection({ data }: { data: TPlanungData }) {
   if (!data) return null
   const image = getMedia(data.image, data.title)
 

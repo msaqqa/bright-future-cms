@@ -1,15 +1,16 @@
 import { revalidatePath } from 'next/cache'
 import { GlobalConfig } from 'payload'
 import { PageHeaderSection } from './common/sections'
+import { SectionTitle } from './common/fields'
 
 export const Contact: GlobalConfig = {
   slug: 'contact-page',
-  label: 'Contact Page',
+  label: 'Contact',
   hooks: {
     afterChange: [async () => revalidatePath('/', 'layout')],
   },
   admin: {
-    group: 'Layout',
+    group: 'Pages',
   },
   fields: [
     {
@@ -29,11 +30,7 @@ export const Contact: GlobalConfig = {
               type: 'group',
               label: 'Contact Info Content',
               fields: [
-                {
-                  name: 'title',
-                  type: 'text',
-                  label: 'Section Title',
-                },
+                SectionTitle,
                 {
                   name: 'contactItems',
                   type: 'array',
@@ -42,7 +39,7 @@ export const Contact: GlobalConfig = {
                     { name: 'title', type: 'text', required: true },
                     { name: 'content', type: 'text', required: true },
                     { name: 'image', type: 'upload', relationTo: 'media', required: true },
-                    { name: 'icon', type: 'upload', relationTo: 'media', required: true },
+                    { name: 'icon', type: 'upload', relationTo: 'media' },
                   ],
                 },
               ],

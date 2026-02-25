@@ -31,8 +31,6 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
         <link rel="stylesheet" href="/css/slicknav.min.css" />
         {/* <!-- Font Awesome icon css--> */}
         <link rel="stylesheet" href="/css/all.min.css" media="screen" />
-        {/* <!-- Animated css --> */}
-        <link rel="stylesheet" href="/css/animate.css" />
         {/* <!-- Main custom css --> */}
         <link rel="stylesheet" href="/css/custom.css" media="screen" />
       </head>

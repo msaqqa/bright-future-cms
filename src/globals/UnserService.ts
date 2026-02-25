@@ -1,15 +1,17 @@
 import { revalidatePath } from 'next/cache'
 import { GlobalConfig } from 'payload'
 import { PageHeaderSection } from './common/sections'
+import { SectionClosing, SectionDesc, SectionImg, SectionTitle } from './common/fields'
+import { SectionList } from './common/groups'
 
 export const UnserService: GlobalConfig = {
   slug: 'unser-service-page',
-  label: 'Unser Service Page',
+  label: 'Unser Service',
   hooks: {
     afterChange: [async () => revalidatePath('/', 'layout')],
   },
   admin: {
-    group: 'Layout',
+    group: 'Pages',
   },
   fields: [
     {
@@ -28,24 +30,7 @@ export const UnserService: GlobalConfig = {
               name: 'planung',
               type: 'group',
               label: 'Planung und Installation',
-              fields: [
-                {
-                  name: 'title',
-                  type: 'text',
-                  label: 'Section Title',
-                },
-                {
-                  name: 'description',
-                  type: 'text',
-                  label: 'Section Description',
-                },
-                {
-                  name: 'image',
-                  type: 'upload',
-                  relationTo: 'media',
-                  label: 'Section Image',
-                },
-              ],
+              fields: [SectionTitle, SectionDesc, SectionImg],
             },
           ],
         },
@@ -58,16 +43,8 @@ export const UnserService: GlobalConfig = {
               type: 'group',
               label: 'Technische Machbarkeitsprüfung',
               fields: [
-                {
-                  name: 'title',
-                  type: 'text',
-                  label: 'Section Title',
-                },
-                {
-                  name: 'description',
-                  type: 'text',
-                  label: 'Section Description',
-                },
+                SectionTitle,
+                SectionDesc,
                 {
                   name: 'list',
                   type: 'group',
@@ -97,17 +74,8 @@ export const UnserService: GlobalConfig = {
                     },
                   ],
                 },
-                {
-                  name: 'closingText',
-                  type: 'text',
-                  label: 'Section Closing Text',
-                },
-                {
-                  name: 'image',
-                  type: 'upload',
-                  relationTo: 'media',
-                  label: 'Section Image',
-                },
+                SectionClosing,
+                SectionImg,
               ],
             },
           ],
@@ -120,46 +88,7 @@ export const UnserService: GlobalConfig = {
               name: 'qualifizierte',
               type: 'group',
               label: 'Qualifizierte PV-Leads',
-              fields: [
-                {
-                  name: 'title',
-                  type: 'text',
-                  label: 'Section Title',
-                },
-                {
-                  name: 'description',
-                  type: 'text',
-                  label: 'Section Description',
-                },
-                {
-                  name: 'list',
-                  type: 'array',
-                  label: 'Feature List',
-                  fields: [
-                    {
-                      name: 'title',
-                      type: 'text',
-                      label: 'Item Title',
-                    },
-                    {
-                      name: 'description',
-                      type: 'text',
-                      label: 'Item Description',
-                    },
-                  ],
-                },
-                {
-                  name: 'closingText',
-                  type: 'text',
-                  label: 'Section Closing Text',
-                },
-                {
-                  name: 'image',
-                  type: 'upload',
-                  relationTo: 'media',
-                  label: 'Section Image',
-                },
-              ],
+              fields: [SectionTitle, SectionDesc, SectionList, SectionClosing, SectionImg],
             },
           ],
         },

@@ -8,6 +8,7 @@ import { s3Storage } from '@payloadcms/storage-s3'
 import { Users } from './collections/Users'
 import { Media } from './collections/Media'
 import { globals } from './globals'
+import { Logo, Icon } from './components/logo'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -18,6 +19,16 @@ export default buildConfig({
     user: Users.slug,
     importMap: {
       baseDir: path.resolve(dirname),
+    },
+    meta: {
+      titleSuffix: '- Bright Future',
+      description: 'Bright Future Admin',
+    },
+    components: {
+      graphics: {
+        Logo: Logo as any,
+        Icon: Icon as any,
+      },
     },
   },
   collections: [Users, Media],

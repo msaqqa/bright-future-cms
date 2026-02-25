@@ -4,59 +4,52 @@ export type TTopbarData = {
   email: string
   phone: string
   socialLinks?: {
+    id?: string
     platform: 'facebook' | 'twitter' | 'linkedin' | 'instagram'
     url: string
   }[]
 }
 
-export type THeaderData = {
-  email?: string
-  phone?: string
-  socialLinks?: {
-    platform: 'facebook' | 'twitter' | 'linkedin' | 'instagram'
-    url: string
-    id?: string
-  }[]
-  logo?: Media | string
+export type THeaderData = TTopbarData & {
+  logo: Media | string
   navItems?: {
+    id?: string
     label: string
     link: string
     hasSubMenu: boolean
     subMenuItems?: {
+      id?: string
       label: string
       link: string
-      id?: string
     }[]
-    id?: string
   }[]
 }
 
 export type TFooterData = {
   contactItems?: {
+    id?: string
     title: string
     details: {
       label: string
       link: string
-      id?: string
     }
     icon: Media | string
-    id?: string
   }[]
   aboutText?: string
   footerLogo: Media | string
   socialLinks?: {
+    id?: string
     platform: 'facebook' | 'twitter' | 'linkedin' | 'instagram'
     url: string
-    id?: string
   }[]
   columns?: {
+    id?: string
     title: string
     links?: {
+      id?: string
       label: string
       url: string
-      id?: string
     }[]
-    id?: string
   }[]
-  copyrightText?: string
+  copyrightText: string
 }

@@ -14,7 +14,7 @@ export default function PageHeader({ data }: { data: THeaderData }) {
           <div className="col-md-12">
             <div className="page-header-box">
               <h1 className="text-anime">{data.title}</h1>
-              <nav className="wow fadeInUp" data-wow-delay="0.25s">
+              <nav>
                 <ol className="breadcrumb">
                   <li className="breadcrumb-item">
                     <a href={data.breadcrumbLink.url}>{data.breadcrumbLink.label}</a>

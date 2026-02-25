@@ -20,7 +20,7 @@ export default function PageFeatures({ data }: { data: TFeaturesData }) {
             const image = getMedia(item.image, item.title)
             return (
               <div key={item.id || index} className="col-lg-4 col-md-6 mb-4">
-                <div className="why-choose-item wow fadeInUp" data-wow-delay="0.25s">
+                <div className="why-choose-item">
                   <div className="why-choose-image">
                     <img src={image?.url} alt={image.alt} />
                   </div>

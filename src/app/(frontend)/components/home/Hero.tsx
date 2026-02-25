@@ -20,17 +20,17 @@ export default function Hero({ data }: { data: THeroData }) {
           <div className="col-lg-7">
             <div className="hero-content">
               <div className="section-title">
-                {data.welcomeText && <h3 className="wow fadeInUp">{data.welcomeText}</h3>}
-                <h1 className="text-anime text-white">{data.mainTitle}</h1>
+                {data.welcomeText && <h3>{data.welcomeText}</h3>}
+                <h1 className="text-anime text-white">{data.title}</h1>
               </div>
 
               {data.description && (
-                <div className="hero-content-body wow fadeInUp" data-wow-delay="0.5s">
+                <div className="hero-content-body">
                   <p>{data.description}</p>
                 </div>
               )}
 
-              <div className="hero-content-footer wow fadeInUp" data-wow-delay="0.75s">
+              <div className="hero-content-footer">
                 {data.primaryButton?.label && data.primaryButton?.link && (
                   <Link href={data.primaryButton.link} className="btn-default">
                     {data.primaryButton.label}

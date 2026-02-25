@@ -1,15 +1,16 @@
 import { revalidatePath } from 'next/cache'
 import { GlobalConfig } from 'payload'
 import { InfobarSection } from './common/sections'
+import { SectionDesc, SectionTitle } from './common/fields'
 
 export const Home: GlobalConfig = {
   slug: 'home-page',
-  label: 'Home Page',
+  label: 'Home',
   hooks: {
     afterChange: [async () => revalidatePath('/', 'layout')],
   },
   admin: {
-    group: 'Layout',
+    group: 'Pages',
   },
   fields: [
     {
@@ -29,16 +30,8 @@ export const Home: GlobalConfig = {
                   type: 'text',
                   label: 'Welcome Text',
                 },
-                {
-                  name: 'mainTitle',
-                  type: 'text',
-                  label: 'Main Title',
-                },
-                {
-                  name: 'description',
-                  type: 'textarea',
-                  label: 'Description',
-                },
+                SectionTitle,
+                SectionDesc,
                 {
                   name: 'backgroundImage',
                   type: 'upload',
@@ -76,11 +69,7 @@ export const Home: GlobalConfig = {
               type: 'group',
               label: 'Why Choose Us Content',
               fields: [
-                {
-                  name: 'title',
-                  type: 'text',
-                  label: 'Main Section Title',
-                },
+                SectionTitle,
                 {
                   name: 'items',
                   type: 'array',
@@ -153,11 +142,7 @@ export const Home: GlobalConfig = {
               type: 'group',
               label: 'Why Bright Future Energy Content',
               fields: [
-                {
-                  name: 'title',
-                  type: 'text',
-                  label: 'Main Section Title',
-                },
+                SectionTitle,
                 {
                   name: 'items',
                   type: 'array',
@@ -227,22 +212,22 @@ export const Home: GlobalConfig = {
               name: 'faq',
               type: 'group',
               fields: [
-                { name: 'title', type: 'text', required: true },
-                { name: 'description', type: 'textarea' },
+                SectionTitle,
+                SectionDesc,
                 {
                   name: 'button',
                   type: 'group',
                   label: 'Button',
                   fields: [
-                    { name: 'label', type: 'text', label: 'Label', required: true },
-                    { name: 'link', type: 'text', label: 'Link', required: true },
+                    { name: 'label', type: 'text', label: 'Label' },
+                    { name: 'link', type: 'text', label: 'Link' },
                   ],
                 },
                 {
                   name: 'image',
                   type: 'upload',
                   relationTo: 'media',
-                  label: 'Item Icon (SVG)',
+                  label: 'Section Icon (SVG)',
                 },
               ],
             },

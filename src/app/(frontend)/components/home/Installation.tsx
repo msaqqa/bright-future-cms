@@ -1,19 +1,19 @@
 import Image from 'next/image'
-import { TInstallationItem } from '../../types/home'
+import { TInstallationData } from '../../types/home'
 import { getMedia } from '../../lib/media'
 
-export default function Installation({ data }: { data: { items: TInstallationItem[] } }) {
+export default function Installation({ data }: { data: { items: TInstallationData } }) {
   if (!data) return null
 
   return (
     <div className="installation">
       <div className="container">
         <div className="row">
-          {data?.items?.map((item: TInstallationItem, index: number) => {
+          {data?.items?.map((item) => {
             const image = getMedia(item.image, item.title)
             return (
-              <div className="col-lg-6" key={index}>
-                <div className="blog-item wow fadeInUp">
+              <div className="col-lg-6" key={item.id}>
+                <div className="blog-item">
                   <div className="post-featured-image">
                     <figure className="image-anime">
                       <Image src={image.url} alt={image.alt} fill />
