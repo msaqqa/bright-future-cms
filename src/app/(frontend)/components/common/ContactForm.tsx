@@ -1,17 +1,10 @@
 'use client'
 
-import React, { useState } from 'react'
+import SuccessModal from './SuccessModal'
+import { useContactForm } from '../../lib/useContactForm'
 
 export default function ContactForm() {
-  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle')
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    setStatus('sending')
-
-    // هنا مستقبلاً سنقوم بربطه مع API Route لإرسال الإيميل
-    setTimeout(() => setStatus('success'), 1500)
-  }
+  const { status, showModal, setShowModal, handleSubmit } = useContactForm()
 
   return (
     <div className="solar-calculator">
@@ -91,11 +84,8 @@ export default function ContactForm() {
                           {status === 'sending' ? 'Wird gesendet...' : 'Nachricht Senden'}
                         </button>
 
-                        {status === 'success' && (
-                          <div className="alert alert-success mt-3">
-                            Vielen Dank! Ihre Nachricht wurde erfolgreich versendet.
-                          </div>
-                        )}
+                        {/* Success Modal */}
+                        {showModal && <SuccessModal setShowModal={setShowModal} />}
                       </div>
                     </div>
                   </form>

@@ -7,6 +7,7 @@ import sharp from 'sharp'
 import { s3Storage } from '@payloadcms/storage-s3'
 import { Users } from './collections/Users'
 import { Media } from './collections/Media'
+import { ContactRequests } from './collections/ContactRequests'
 import { globals } from './globals'
 import { Logo, Icon } from './components/logo'
 
@@ -31,7 +32,7 @@ export default buildConfig({
       },
     },
   },
-  collections: [Users, Media],
+  collections: [Users, Media, ContactRequests],
   globals: globals,
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',

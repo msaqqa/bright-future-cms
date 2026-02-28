@@ -1,9 +1,14 @@
 'use client'
 
+import SuccessModal from '../common/SuccessModal'
+import { useContactForm } from '../../lib/useContactForm'
+
 export default function ContactForm() {
+  const { status, showModal, setShowModal, handleSubmit } = useContactForm()
+
   return (
     <div className="solar-form">
-      <form id="brightFutureForm" onSubmit={(e) => e.preventDefault()}>
+      <form id="brightFutureForm" onSubmit={handleSubmit}>
         <div className="row">
           <div className="form-group col-md-6 mb-4">
             <input
@@ -49,9 +54,17 @@ export default function ContactForm() {
             />
           </div>
           <div className="col-md-12 text-center">
-            <button type="submit" className="btn-default" id="formBtn">
-              Nachricht Senden
+            <button
+              type="submit"
+              className="btn-default"
+              id="formBtn"
+              disabled={status === 'sending'}
+            >
+              {status === 'sending' ? 'Wird gesendet...' : 'Nachricht Senden'}
             </button>
+
+            {/* Success Modal */}
+            {showModal && <SuccessModal setShowModal={setShowModal} />}
           </div>
         </div>
       </form>
